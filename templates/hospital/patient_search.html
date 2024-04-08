@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for "{{ query }}"</h1>
+    {% if patients %}
+        <ul>
+        {% for patient in patients %}
+            <li>{{ patient.get_name }} - {{ patient.admitDate }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No matching patients found for "{{ query }}"</p>
+    {% endif %}
+</body>
+</html>

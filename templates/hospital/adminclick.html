@@ -1,0 +1,41 @@
+{% extends 'hospital/homebase.html' %}
+{%load static%}
+<!--
+developed By : Shallot Damary
+-->
+{% block content %}
+
+<style>
+  /* Custom styles */
+  .jumbotron {
+    background-image: url("{% static 'admin_img/patient.jpg' %}"); /* Add background image */
+    background-size: cover;
+    background-position: center;
+    color: blue; /* Change text color to white */
+    padding: 100px 30px; /* Adjust padding for better readability */
+    text-align: center;
+    border-radius: 0; /* Remove border-radius */
+  }
+
+  .lead {
+    font-size: 30px; /* Increase font size of lead paragraph */
+    margin-bottom: 30px; /* Add margin for better spacing */
+  }
+</style>
+
+<br>
+<br>
+
+<div class="jumbotron">
+  <h1 class="display-4">Hi There, Admin</h1>
+  <p class="lead">Welcome To Kapenguria County Refferal Hospital.</p>
+  <hr class="my-4">
+  <h4> Please Log in to access the admin Panel</h4>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/adminsignup" role="button">SignUp</a>
+    <a class="btn btn-primary btn-lg" href="/adminlogin" role="button">Login</a>
+  </p>
+</div>
+
+{% endblock content %}
+

@@ -1,0 +1,95 @@
+{% extends 'hospital/admin_base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  /* Custom styles */
+  body {
+    background-image: url('{% static "admin_img/hosi.jpg" %}');
+    background-size: cover;
+    
+    color: white;
+  }
+
+  .panel {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  .panel-heading {
+    background-color: #ffc107; /* Panel heading color */
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .panel-title {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  table {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background for tables */
+    border-radius: 10px;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border bottom */
+  }
+
+  th {
+    background-color: rgba(255, 225, 225, 0.1); /* Semi-transparent background for table headers */
+  }
+
+  .card {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: blue;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Shadow effect */
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+</style>
+
+{%include 'hospital/admin_dashboard_cards.html'%}
+<br><br><br><br>
+
+
+    
+
+<!--
+developed By : shallot Damary
+-->
+
+{% endblock content %}
+<footer>
+      <p>
+        <a id="ftr" href="https://facebook.com/damary.shallots" class="fa fa-facebook"></a>
+        <a id="ftr" href="https://api.whatsapp.com/send?phone=254790079242&text=Hello%20Damary%20I%20came%20from%20your%20website" class="fa fa-whatsapp"> </a>
+        {% comment %}
+        <a id="ftr" href="https://instagram.com/" class="fa fa-instagram"></a>
+        {% endcomment %}
+      </p>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div style="color:#000;" class="wow fadeInUp footer-copyright">
+              <p>Damary Project <br>
+                Copyright &copy; 2024 Damary Hospital Management system</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>

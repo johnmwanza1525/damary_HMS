@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Damary Hospital management system - Generate Report</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style media="screen">
+        /* Your existing styles */
+
+        footer {
+            padding: 20px 0;
+            background-color: cyan;
+            margin: 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #ftr {
+            padding: 20px;
+        }
+
+        .fa {
+            font-size: 23px;
+            width: 60px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+        }
+
+        .fa:hover {
+            opacity: 0.5;
+            text-decoration: none;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .fa-whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        body {
+            padding-bottom: 80px; /* Adjusted to accommodate the footer */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="menu" tabindex="0">
+        <!-- Your existing menu content -->
+    </nav>
+
+    <main>
+
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background:#0d6efd;">
+            <a href="/admin-dashboard" class="navbar-brand">DAMARY HOSPITAL MANAGEMENT</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav" style=" margin-left: 90%;">
+                    <a href="/logout" class="nav-item nav-link text-danger">Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <br><br>
+
+        <!-- content start-->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Generate Report</h5>
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="date">Enter Date:</label>
+                                    <input type="date" id="date" name="date" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Generate Report</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content end-->
+
+        <br><br><br><br>
+    </main>
+
+    <footer>
+        <p>
+            <a id="ftr" href="https://facebook.com/damary.shallots" class="fa fa-facebook"></a>
+            <a id="ftr" href="https://api.whatsapp.com/send?phone=254790079242&text=Hello%20Damary%20I%20came%20from%20your%20website" class="fa fa-whatsapp"> </a>
+        </p>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div style="color:#000;" class="wow fadeInUp footer-copyright">
+                        <p>
+                            Copyright &copy; 2024 Damary Hospital Management system</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+

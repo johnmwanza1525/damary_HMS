@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+    }
+
+    .title {
+      color: #333;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px 16px;
+      color: white;
+      background-color: #007bff;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    a:link,
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="grid-container">
+      <div class="card">
+        <img src="{% static 'images/admin.jpg' %}" alt="Hospital Admin">
+        <div class="card-body">
+          <h5 class="title">HOSPITAL ADMIN</h5>
+          <p>Only the Admin of Hospital is allowed in this panel</p>
+          <a href="/adminclick"><button>Log in</button></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="{% static 'images/doctor1.png' %}" alt="Doctor">
+        <div class="card-body">
+          <h5 class="title">DOCTOR</h5>
+          <a href="/doctorclick"><button>Log in</button></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="{% static 'images/patient1.jpg' %}" alt="Patient">
+        <div class="card-body">
+          <h5 class="title">PATIENT</h5>
+          <p>Patients log in here please</p>
+          <a href="/patientclick"><button>Log in</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- developed By : Shallot Damary -->
+</body>
+
+</html>

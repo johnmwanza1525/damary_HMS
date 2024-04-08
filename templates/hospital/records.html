@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record View</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Record View</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Search by:</label>
+                <select class="form-control" name="search_option" id="search_option">
+                    <option value="username">User Name</option>
+                    <option value="date">Date</option>
+                </select>
+            </div>
+            <div class="form-group" id="search_user">
+                <input type="text" class="form-control" name="search_query" placeholder="Enter User Name or Date">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        {% if search_results %}
+            <h3 class="mt-4">Search Results:</h3>
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Admit Date</th>
+                        <!-- Add more fields if needed -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patient in search_results %}
+                        <tr>
+                            <td>{{ patient.get_name }}</td>
+                            <td>{{ patient.admitDate }}</td>
+                            <!-- Display more fields as required -->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% elif today_activities %}
+            <h3 class="mt-4">Daily Patient Records:</h3>
+            <p>Appointments Count: {{ today_activities.appointments_count }}</p>
+            <p>Admissions Count: {{ today_activities.admissions_count }}</p>
+            <p>Discharges Count: {{ today_activities.discharges_count }}</p>
+        {% else %}
+            <h3 class="mt-4">No records found</h3>
+        {% endif %}
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('select[name="search_option"]').change(function(){
+                var selectedOption = $(this).children("option:selected").val();
+                if(selectedOption === 'username') {
+                    $('#search_user').show();
+                } else if(selectedOption === 'date') {
+                    $('#search_user').show();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

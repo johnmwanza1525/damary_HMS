@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center" style="background-color: #0dcaf0;">
+            <h3 class="panel-title" style="color: white;">Total Doctors</h3>
+          </div>
+          <div class="panel-body text-center" style="background-color: #0dcaf0;">
+            <i class="fa fa-user-md" style="font-size: 4em; color: #fd7e14;"></i>
+            <h3>{{doctorcount}}</h3>
+            <p>Approval Required: {{pendingdoctorcount}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center" style="background-color: #0dcaf0;">
+            <h3 class="panel-title" style="color: white;">Total Patients</h3>
+          </div>
+          <div class="panel-body text-center" style="background-color: #0dcaf0;">
+            <i class="fa fa-user-o" style="font-size: 4em; color: #fd7e14;"></i>
+            <h3>{{patientcount}}</h3>
+            <p>Wants to Admit: {{pendingpatientcount}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center" style="background-color: #0dcaf0;">
+            <h3 class="panel-title" style="color: white;">Total Appointments</h3>
+          </div>
+          <div class="panel-body text-center" style="background-color: #0dcaf0;">
+            <i class="fa fa-calendar" style="font-size: 4em; color: #fd7e14;"></i>
+            <h3>{{appointmentcount}}</h3>
+            <p>Approve Appointments: {{pendingappointmentcount}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<!--
+  developed By : shallot damary
+  -->
+
+</html>

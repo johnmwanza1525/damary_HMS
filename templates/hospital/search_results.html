@@ -1,0 +1,10 @@
+{% for result in search_results %}
+    <div>
+        <h3>{{ result.name }}</h3>
+        <p><strong>Date Admitted:</strong> {{ result.date_admitted }}</p>
+        <p><strong>Date Discharged:</strong> {{ result.date_discharged }}</p>
+        <p><strong>Doctor Appointed:</strong> {{ result.doctor_appointed }}</p>
+    </div>
+{% empty %}
+    <p>No results found.</p>
+{% endfor %}

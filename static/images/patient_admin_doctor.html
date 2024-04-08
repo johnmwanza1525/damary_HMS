@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+
+    .title {
+      color: grey;
+      font-size: 18px;
+    }
+
+    button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    button:hover,
+    a:hover {
+      opacity: 0.7;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      padding: 10px;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+<div class="grid-container">
+  <div class="grid-item">
+    <div class="card">
+      <img src="{% static "images/admin.jpg" %}" class="card-img-top" alt="John">
+      <div class="card-body">
+        <h5 class="card-title text-primary">HOSPITAL ADMIN</h5>
+        <p class="card-text">Only the Admin of Damary hospital is allowed in this panel</p>
+        <a href="/adminclick" class="btn btn-primary">Log in</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="grid-item">
+      <div class="card">
+        <img src="{% static "images/doctor1.png" %}" alt="John" style="width:100%">
+        <p class="title">DOCTOR</p>
+        <a href="/doctorclick" class="btn btn-primary">Log in</a>
+      </div>
+    </div>
+
+      <div class="grid-item">
+      <div class="card">
+        <img src="{% static "images/patient1.jpg" %}" alt="John" style="width:100%">
+        <p class="card-text">Patients Log in here please</p> 
+        <a href="/patientclick" class="btn btn-danger">Log in</a>
+      </div>
+    </div>
+
+  </div>
+  <!--
+  developed By :Shallot Damary
+  -->
+
+</body>
+
+</html>
+

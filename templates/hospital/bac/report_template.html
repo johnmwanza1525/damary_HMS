@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+</head>
+<body>
+    <h1>Daily Report for {{ date }}</h1>
+
+    <h2>Appointments</h2>
+    <table border="1">
+        <tr>
+            <th>Patient Name</th>
+            <th>Doctor Assigned</th>
+        </tr>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.patientName }}</td>
+            <td>{{ appointment.doctorName }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Admissions</h2>
+    <table border="1">
+        <tr>
+            <th>Patient Name</th>
+            <th>Symptoms</th>
+        </tr>
+        {% for admission in admissions %}
+        <tr>
+            <td>{{ admission.user.first_name }} {{ admission.user.last_name }}</td>
+            <td>{{ admission.symptoms }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Discharges</h2>
+    <table border="1">
+        <tr>
+            <th>Patient Name</th>
+            <th>Release Date</th>
+        </tr>
+        {% for discharge in discharges %}
+        <tr>
+            <td>{{ discharge.patientName }}</td>
+            <td>{{ discharge.releaseDate }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Summary</h2>
+    <p>Total Appointments: {{ total_appointments }}</p>
+    <p>Total Admissions: {{ total_admissions }}</p>
+    <p>Total Discharges: {{ total_discharges }}</p>
+    <p>Total Patients: {{ total_patients }}</p>
+</body>
+</html>

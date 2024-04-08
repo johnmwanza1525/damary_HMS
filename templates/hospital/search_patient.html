@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Patient</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add custom styles here if needed */
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Search Patient</h1>
+        <form method="post" class="mb-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="patient_name">Enter Patient Name:</label>
+                <input type="text" class="form-control" id="patient_name" name="patient_name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        {% if search_results %}
+            <h2>Search Results</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Date Admitted</th>
+                        <th>Date Discharged</th>
+                        <th>Doctor Appointed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in search_results %}
+                    <tr>
+                        <td>{{ result.name }}</td>
+                        <td>{{ result.date_admitted }}</td>
+                        <td>{{ result.date_discharged }}</td>
+                        <td>{{ result.doctor_appointed }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            {% if request.method == 'POST' %}
+                <p>No matching patients found.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

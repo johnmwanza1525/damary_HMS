@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hospital Records - Damary Hospital Management System</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- jQuery, Popper.js, Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Custom CSS -->
+  <style media="screen">
+    /* Add your custom styles here */
+    /* Styling before search form */
+    .search-form-container {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background:#0d6efd;">
+    <div class="container">
+      <a href="/admin-dashboard" class="navbar-brand">DAMARY HOSPITAL MANAGEMENT</a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="/logout" class="nav-link text-danger">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="mt-5 pt-3">
+    <div class="container">
+      <h1 class="mb-4">Hospital Records</h1>
+
+      <!-- Search by Date -->
+      <div class="search-form-container"> <!-- Styling for search form -->
+        <form method="GET">
+          <div class="form-group">
+            <label for="search_date">Search by Date:</label>
+            <input type="date" class="form-control" id="search_date" name="search_date">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div> <!-- End of styling for search form -->
+
+      <!-- Display Daily Activity -->
+      {% if search_date %}
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title">Daily Activity for {{ search_date }}</h2>
+          <p class="card-text">Appointments made: {{ daily_activity.appointments_count }}</p>
+          <p class="card-text">Patients admitted: {{ daily_activity.admissions_count }}</p>
+          <p class="card-text">Patients discharged: {{ daily_activity.discharges_count }}</p>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Recent Records -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title">Recent Records</h2>
+          <ul class="list-group">
+            {% for patient in recent_records %}
+            <li class="list-group-item">{{ patient.get_name }} - {{ patient.admitDate }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Search by Patient Name -->
+      <div class="search-form-container">
+      <form method="GET">
+        <div class="form-group">
+          <label for="search_name">Search by Patient Name:</label>
+          <input type="text" class="form-control" id="search_name" name="search_name" placeholder="Enter patient name">
+          
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </main>
+  
+ <h1>Search Results for "{{ query }}"</h1>
+    {% if patients %}
+        <ul>
+        {% for patient in patients %}
+            <li>{{ patient.get_name }} - {{ patient.admitDate }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No matching patients found for "{{ query }}"</p>
+    {% endif %}
+
+  <!-- Footer -->
+  <footer class="footer mt-auto py-3 bg-info">
+    <div class="container text-center">
+      <p class="mb-0">
+        <a href="https://facebook.com/damary.shallots" class="fa fa-facebook text-white mr-3"></a>
+        <a href="https://api.whatsapp.com/send?phone=254790079242&text=Hello%20Damary%20I%20came%20from%20your%20website" class="fa fa-whatsapp text-white mr-3"></a>
+      </p>
+      <p class="mb-0">Damary Project<br>Copyright &copy; 2024 Damary Hospital Management system</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
